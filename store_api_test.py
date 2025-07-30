@@ -1,24 +1,36 @@
-from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+driver = webdriver.Chrome()
+driver.get("https://atid.store/product/black-hoodie/")
 
-def test_contact_us_valid():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    driver.get("https://atid.store")
-    driver.find_element(By.XPATH, '//*[@id="menu-item-829"]/a').click()
-    driver.find_element(By.XPATH, '//*[@id="wpforms-15-field_0"]').send_keys("israel")
-    driver.find_element(By.ID, 'wpforms-15-field_5').send_keys("test")
-    driver.find_element(By.ID, 'wpforms-15-field_4').send_keys("test@test.com")
-    driver.find_element(By.ID, 'wpforms-15-field_2').send_keys("test my selenium")
-    driver.find_element(By.ID, 'wpforms-submit-15').click()
-    sleep(5)
-    text = driver.find_element(By.XPATH, '//*[@id="wpforms-confirmation-15"]/p').get_attribute('innerText')
-    if text == 'Thanks for contacting us! We will be in touch with you shortly.':
-        print('Test Passed V')
+try:
+    title = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.TAG_NAME, 'h1'))
+    )
+    print(f"Checking page: {title.text}")
+
+    assert title.text.strip() == "Black Hoodie"
+
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.NAME, 'add-to-cart'))
+    ).click()
+
+    confirmation = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CLASS_NAME, 'woocommerce-message'))
+    )
+
+    if "has been added to your cart" in confirmation.text:
+        print("Test Passed")
     else:
-        print('Test Failed X')
+        print("Test Failed")
+
+except Exception as e:
+    print("Error:", e)
+
+driver.quit()
 
 
 
