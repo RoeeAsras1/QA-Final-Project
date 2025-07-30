@@ -31,11 +31,10 @@ It combines both manual and automated testing of the [Atid.Store](https://atid.s
 
 - `test_black_hoodie.py` – Selenium test for Store module
 - `store_api_test.py` – Selenium test for Contact Us form
-- `API_Test_Case_AddToCart.docx` – Manual API test case
+- `API_Test_Case_AddToCart.docx` – Manual API test case + Postman screenshot 
 - STD_Plan.xlsx – STD document with manual test plan
-- Postman screenshot – result of successful API execution
-  
 
+  
 ---
 
 ### Created by:
