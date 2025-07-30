@@ -1,11 +1,13 @@
 # Final Project – QA Automation and API Testing
 
-This project was created as part of the QA Automation course. It combines both manual and automated testing of the [Atid.Store](https://atid.store) e-commerce website, along with API testing of the Grocery Store API.
+This project was created as part of the QA Automation course.  
+It combines both manual and automated testing of the [Atid.Store](https://atid.store) e-commerce website, along with API testing of the Grocery Store API.
 
 ## Project Includes
 
 - ✅ Manual API Test Case – Adding a product to a cart
 - ✅ Selenium automation test for the "Contact Us" form on the website
+- ✅ Selenium automation test for Store module – adding "Black Hoodie" to cart
 - ✅ STD document with manual test design for selected modules
 - ✅ Postman execution of API test (with attached screenshot)
 
@@ -16,25 +18,27 @@ This project was created as part of the QA Automation course. It combines both m
 - Postman (for API testing)
 - Microsoft Excel (STD planning)
 
-## How to Run the Selenium Test
+## How to Run the Selenium Tests
 
-1. Install Selenium:
-
-2. Make sure Google Chrome is installed and matches your ChromeDriver version
-
-3. Run the script:
+1. Make sure Selenium is installed:
+2. Run the store test (Black Hoodie):
+3. Optionally, run the Contact Us form test:
 
 
-> The result will be printed in the console – indicating pass or fail, based on the form confirmation message.
+> Test output will print the product/page being tested and the test result (Pass/Fail).
 
 ## Included Files
 
-- `store_api_test.py` – Python automation script using Selenium
+- `test_black_hoodie.py` – Selenium test for Store module
+- `store_api_test.py` – Selenium test for Contact Us form
 - `API_Test_Case_AddToCart.docx` – Manual API test case
-- `מסמך STD.xlsx` – Manual test plan (STD) in Excel
-- Screenshot from Postman API execution
+- STD_Plan.xlsx – STD document with manual test plan
+- Postman screenshot – result of successful API execution
+  
 
 ---
 
-Created by:
+### Created by:
 Roee Asras
+
+
